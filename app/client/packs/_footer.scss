@@ -3,17 +3,19 @@
 
 .page-footer {
   position: absolute;
-  width: 100%;
   bottom: 0;
+
+  width: 100%;
 
   &.bg-dark {
     a {
       color: $light;
+
       font-weight: bold;
     }
-  }
 
-  &.bg-dark .footer-copyright {
-    background: darken($dark, 20%);
+    .footer-copyright {
+      background: darken($dark, 20%);
+    }
   }
 }

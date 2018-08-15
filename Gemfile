@@ -24,6 +24,7 @@ group :development, :test do
   gem 'reek', '~> 5.0'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop'
+  gem 'scss_lint'
   gem 'shoulda-matchers', '~> 3.1'
 end
 
