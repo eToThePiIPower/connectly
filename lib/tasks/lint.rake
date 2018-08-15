@@ -5,7 +5,7 @@ require 'scss_lint/rake_task'
 task lint: 'lint:all'
 
 namespace :lint do
-  task all: [:rubocop, :reek, :scss_lint]
+  task all: [:rubocop, :reek, :scss_lint, :erblint]
 
   desc 'Lint ruby source files'
   RuboCop::RakeTask.new # :rubocop
@@ -17,4 +17,9 @@ namespace :lint do
 
   desc 'Lint scss source files'
   SCSSLint::RakeTask.new
+
+  desc 'LInt ERB source files'
+  task :erblint do
+    sh "erblint --lint-all #{Rails.root}"
+  end
 end
