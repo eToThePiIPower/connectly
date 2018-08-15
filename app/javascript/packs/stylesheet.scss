@@ -2,3 +2,20 @@
 
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
+
+.page-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  &.bg-dark {
+    a {
+      color: $light;
+      font-weight: bold;
+    }
+  }
+
+  &.bg-dark .footer-copyright {
+    background: darken($dark, 20%);
+  }
+}
