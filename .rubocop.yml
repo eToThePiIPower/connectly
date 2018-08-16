@@ -6,18 +6,25 @@ AllCops:
     - 'node_modules/**/*'
     - 'bin/*'
 
+# Better paramter alignment
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
 # Be a bit more linent on line length limits and ignore comments
 Metrics/LineLength:
   Max: 100
   IgnoredPatterns: ['\A\s*#']
 
-# Allow longer blocks/methods in database migrations
+# Allow longer blocks/methods in database migrations and rspecs
 Metrics/AbcSize:
   Exclude:
     - 'db/migrate/**'
 Metrics/MethodLength:
   Exclude:
     - 'db/migrate/**/*'
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
 
 # Ignore class documentation except in models
 Style/Documentation:

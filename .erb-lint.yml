@@ -26,6 +26,10 @@ linters:
         Enabled: false
       Metrics/LineLength:
         Enabled: false
+      Layout/AlignHash:
+        Enabled: false
+      Layout/AlignParameters:
+        Enabled: false
       Lint/UselessAssignment:
         Enabled: false
       Rails/OutputSafety:
