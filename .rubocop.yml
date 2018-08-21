@@ -25,6 +25,8 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'Guardfile'
+    - 'config/Guardfile'
 
 # Ignore class documentation except in models
 Style/Documentation:
