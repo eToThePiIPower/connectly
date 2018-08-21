@@ -12,8 +12,8 @@ RSpec.feature 'UsersHaveProfiles', type: :feature do
     click_button 'Log in'
 
     visit '/users/edit'
-    # fill_in 'Description',
-    #   with: 'This is my account. There are many like it but this one is mine.'
+    fill_in 'Description',
+      with: 'This is my account. There are many like it but this one is mine.'
     fill_in 'Current password', with: 'password'
     click_button 'Update'
 

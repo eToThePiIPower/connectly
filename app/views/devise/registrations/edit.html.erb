@@ -20,6 +20,18 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
+      <hr class="my-4" />
+
+      <%= f.fields_for :profile, @user.profile do |p| %>
+      <div class="form-group">
+        <%= p.label :description %>
+        <%= p.text_area :description, rows: 4,
+          class: 'form-control' %>
+      </div>
+      <% end %>
+
+      <hr class="my-4" />
+
       <div class="form-group">
         <%= f.label :password %>
         <%= f.password_field :password, autocomplete: 'off',
