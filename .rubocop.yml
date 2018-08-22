@@ -28,6 +28,8 @@ Metrics/BlockLength:
     - 'Guardfile'
     - 'config/Guardfile'
 
+Style/ClassAndModuleChildren:
+  Enabled: false
 # Ignore class documentation except in models
 Style/Documentation:
   Exclude:

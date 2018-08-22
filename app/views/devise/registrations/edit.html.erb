@@ -23,11 +23,33 @@
       <hr class="my-4" />
 
       <%= f.fields_for :profile, @user.profile do |p| %>
-      <div class="form-group">
-        <%= p.label :description %>
-        <%= p.text_area :description, rows: 4,
-          class: 'form-control' %>
-      </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card">
+              <% if current_user.profile.avatar.attached? %>
+                <%= image_tag current_user.profile.avatar.variant(resize: '250x250'), class: 'card-img-top' %>
+                <div class="card-footer">
+                  <%= current_user.profile.avatar.blob.filename %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="custom-file my-4 mt-md-0">
+              <%= p.file_field :avatar, class: 'custom-file-input' %>
+              <%= p.label :avatar, class: 'custom-file-label' do %>
+                Upload an avatar...
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= p.label :description %>
+              <%= p.text_area :description, rows: 4,
+                class: 'form-control' %>
+            </div>
+          </div>
+        </div>
       <% end %>
 
       <hr class="my-4" />

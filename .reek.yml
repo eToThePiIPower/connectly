@@ -12,3 +12,6 @@ directories:
       enabled: false
     TooManyStatements:
       enabled: false
+  'app/controllers':
+    InstanceVariableAssumption:
+      enabled: false
