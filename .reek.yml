@@ -6,6 +6,8 @@ directories:
   'db/migrate':
     UncommunicativeVariableName:
       enabled: false
+    DuplicateMethodCall:
+      enabled: false
     FeatureEnvy:
       enabled: false
     TooManyStatements:
