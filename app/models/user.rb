@@ -10,6 +10,8 @@ class User < ApplicationRecord
   validates :username,
     presence: true,
     uniqueness: { case_sensitive: false },
+    format: { with: /\A[a-zA-Z0-9._]+\z/,
+              message: 'can only contain alphanumeric characters, underscores, or periods' },
     length: { minimum: 6, maximum: 32 }
 
   has_one :profile, dependent: :destroy
