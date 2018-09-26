@@ -15,6 +15,8 @@ class User < ApplicationRecord
     length: { minimum: 6, maximum: 32 }
 
   has_one :profile, dependent: :destroy
+  has_many :contacts
+
   accepts_nested_attributes_for :profile, update_only: true
   after_initialize do
     build_profile if new_record? && profile.blank?
