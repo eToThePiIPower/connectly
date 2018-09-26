@@ -14,7 +14,7 @@ RSpec.feature 'Users can create contacts', type: :feature do
 
     expect(page).to have_css '.alert-info',
       text: 'Successfully added John Doe to your contacts'
-    expect(page).to have_css '.card-title',
+    expect(page).to have_css '.card-header',
       text: 'John Doe'
   end
 end
