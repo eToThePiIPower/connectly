@@ -2,6 +2,7 @@
 # communications (i.e. Connections) with and various commitments (i.e. Promises)
 # made to
 class Contact < ApplicationRecord
+  default_scope -> { order('created_at ASC') }
   validates :name,
     presence: true
   belongs_to :user
