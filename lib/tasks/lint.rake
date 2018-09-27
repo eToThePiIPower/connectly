@@ -25,6 +25,6 @@ namespace :lint do
 
   desc 'Lint JavaScript files'
   task :eslint do
-    sh "eslint --ignore-path .gitignore #{Rails.root}"
+    sh "PATH=$(npm bin):$PATH eslint --ignore-path .gitignore #{Rails.root}"
   end
 end
