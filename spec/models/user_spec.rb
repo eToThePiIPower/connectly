@@ -8,4 +8,6 @@ RSpec.describe User, type: :model do
   it { should allow_value('user.name').for(:username) }
 
   it { should have_one(:profile).dependent(:destroy) }
+
+  it { should have_many(:contacts) }
 end

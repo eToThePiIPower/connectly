@@ -1,0 +1,13 @@
+<% if resource.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong><%= pluralize(resource.errors.count, 'error') %> prohibited this contact from being saved:</strong>
+    <ul class="mb-0">
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>

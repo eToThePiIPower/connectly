@@ -1,0 +1,39 @@
+<% if @contacts.empty? %>
+  <div class="jumbotron">
+    <h1 class="display-4">
+      Welcome to Connectly
+    </h1>
+    <p class="lead">
+      You don't have any contacts yet!
+    </p>
+    <%= link_to 'Add your first contact', new_contact_path,
+      class: 'btn btn-primary btn-lg' %>
+  </div>
+
+<% else %>
+
+  <h1>
+    <span>Contacts</span>
+    <%= link_to '+', new_contact_path,
+      class: 'small', title: 'Create a new contact' %>
+  </h1>
+  <section class="card-columns">
+    <% @contacts.each do |contact| %>
+      <article class="card">
+        <h2 class="card-header h4">
+          <%= contact.name %>
+        </h2>
+        <div class="card-body">
+          <%= contact.email %>
+          <%= contact.notes %>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'Show', contact %>
+          <%= link_to 'Edit', edit_contact_path(contact) %>
+          <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </article>
+    <% end %>
+  </section>
+
+<% end %>
