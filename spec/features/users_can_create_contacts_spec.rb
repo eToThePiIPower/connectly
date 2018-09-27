@@ -17,4 +17,15 @@ RSpec.feature 'Users can create contacts', type: :feature do
     expect(page).to have_css '.card-header',
       text: 'John Doe'
   end
+
+  scenario 'User sees a list of their existing contacts' do
+    user = create(:user)
+    login_as(user)
+
+    create_list(:contact, 3, user: user)
+
+    visit '/contacts'
+
+    expect(page).to have_css '.card-header', count: 3
+  end
 end
