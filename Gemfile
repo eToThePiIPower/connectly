@@ -32,6 +32,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'foreman'
   gem 'guard-rspec', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
