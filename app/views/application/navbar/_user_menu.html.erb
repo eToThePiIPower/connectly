@@ -1,6 +1,6 @@
 <li class="nav-item dropdown">
   <% navbar_avatar_toggle_class =
-       "navbar-avatar-toggle-#{current_user.profile.avatar.attached? ? 'hide' : 'show'}" %>
+       "navbar-avatar-toggle-#{current_user.avatar? ? 'hide' : 'show'}" %>
   <a id="navbarUserMenu" href="#"
      class="nav-link dropdown-toggle <%= navbar_avatar_toggle_class -%>"
      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
