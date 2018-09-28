@@ -1,29 +1,43 @@
 // @import '~bootstrap/scss/variables';
+.navbar-avatar-toggle-hide {
+  @include media-breakpoint-up(lg) {
+    padding: 0;
 
-.navbar-avatar {
+    &::after {
+      display: none;
+    }
 
-  z-index: 999;
-
-  border-radius: 50%;
-
-  box-shadow: $btn-box-shadow;
-
-  background-color: transparent;
-
-  width: 48px;
-
-  height: 48px;
+    .navbar-avatar-toggle-text {
+      display: none;
+    }
+  }
 }
 
-.navbar-avatar-img {
+.navbar-avatar {
   display: inline-block;
   position: relative;
 
-  z-index: 998;
+  bottom: $border-width * 2;
 
-  border-radius: inherit;
+  border: $border-width solid $secondary;
 
-  width: inherit;
+  border-radius: $border-radius;
 
-  height: inherit;
+  width: 20px;
+
+  height: 20px;
+
+  @include media-breakpoint-up(lg) {
+    bottom: 0;
+
+    border-radius: 50%;
+
+    box-shadow: $btn-box-shadow;
+
+    background-color: transparent;
+
+    width: 40px;
+
+    height: 40px;
+  }
 }

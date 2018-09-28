@@ -9,5 +9,7 @@ RSpec.describe User, type: :model do
 
   it { should have_one(:profile).dependent(:destroy) }
 
+  it { should delegate_method(:avatar?).to(:profile) }
+
   it { should have_many(:contacts) }
 end

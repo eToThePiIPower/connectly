@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe ContactsController, type: :routing do
+RSpec.describe 'root', type: :routing do
   describe 'routing' do
     context 'when logged in' do
-      it 'routes root to static#about' do
+      it 'routes root to contacts#index' do
         mock_warden(logged_in: true)
         expect(get: '/').to route_to('contacts#index')
       end
     end
 
-    context 'when logged in' do
+    context 'when logged out' do
       it 'routes root to static#about' do
         mock_warden(logged_in: false)
         expect(get: '/').to route_to('static_pages#about')

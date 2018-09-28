@@ -8,4 +8,8 @@ class Profile < ApplicationRecord
     return unless new_avatar
     avatar.attach(new_avatar)
   end
+
+  def avatar?
+    avatar.attached?
+  end
 end

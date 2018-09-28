@@ -5,13 +5,13 @@ RSpec.feature 'UsersHaveProfiles', type: :feature do
     user = create :user,
       username: 'User01',
       email: 'user@example.com'
-    visit '/users/sign_in'
+    visit '/signin'
 
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'password'
     click_button 'Log in'
 
-    visit '/users/edit'
+    visit '/register/edit'
     fill_in 'Description',
       with: 'This is my account. There are many like it but this one is mine.'
     fill_in 'Current password', with: 'password'
@@ -27,13 +27,13 @@ RSpec.feature 'UsersHaveProfiles', type: :feature do
     user = create :user,
       username: 'User01',
       email: 'user@example.com'
-    visit '/users/sign_in'
+    visit '/signin'
 
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'password'
     click_button 'Log in'
 
-    visit '/users/edit'
+    visit '/register/edit'
 
     attach_file 'user[profile_attributes][avatar]', Rails.root.join('spec', 'fixtures', 'test.png')
     fill_in 'Current password', with: 'password'
