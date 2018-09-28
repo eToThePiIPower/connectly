@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'UsersCanLogIns', type: :feature do
   scenario 'User creats a new account' do
-    visit '/users/sign_up'
+    visit '/signup'
 
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Username', with: 'user01'
@@ -15,7 +15,7 @@ RSpec.feature 'UsersCanLogIns', type: :feature do
 
   scenario 'User logs in' do
     create :user, email: 'user@example.com', password: 'password'
-    visit '/users/sign_in'
+    visit '/signin'
 
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'password'
@@ -26,13 +26,13 @@ RSpec.feature 'UsersCanLogIns', type: :feature do
 
   scenario 'User edits her account details' do
     user = create :user, username: 'User01', email: 'user@example.com', password: 'password'
-    visit '/users/sign_in'
+    visit '/signin'
 
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'password'
     click_button 'Log in'
 
-    visit '/users/edit'
+    visit '/register/edit'
     fill_in 'Email', with: 'user@domain.com'
     fill_in 'Username', with: 'NewUsername'
     fill_in 'Current password', with: 'password'
