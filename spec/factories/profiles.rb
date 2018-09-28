@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :profile do
-    descritption 'MyText'
-    user nil
+    description 'MyText'
+    user
   end
 end
