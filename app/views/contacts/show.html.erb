@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-7">
     <div class="card d-50">
       <h1 class="h4 card-header">
         <%= @contact.name %>
@@ -10,9 +10,12 @@
         <%= @contact.notes %>
       </div>
 
-      <div class="card-footer">
-        <%= link_to 'Edit', edit_contact_path(@contact) %> |
-        <%= link_to 'Back', contacts_path %>
+      <div class="card-footer card-footer-actions">
+        <div class="btn-group btn-group-sm pull-right" role="group">
+          <%= link_to 'Edit', edit_contact_path(@contact),
+            class: 'btn btn-secondary' %>
+          <%= link_to 'Back', contacts_path, class: 'btn btn-secondary' %>
+        </div>
       </div>
     </div>
   </div>

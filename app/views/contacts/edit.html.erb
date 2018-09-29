@@ -5,8 +5,10 @@
   <div class="card-body">
     <%= render 'form', contact: @contact %>
   </div>
-  <div class="card-footer">
-    <%= link_to 'Show', @contact %> |
-    <%= link_to 'Back', contacts_path %>
+  <div class="card-footer card-footer-actions">
+    <div class="btn-group btn-group-sm pull-right" role="group">
+      <%= link_to 'Show', @contact, class: 'btn btn-info' %>
+      <%= link_to 'Back', contacts_path, class: 'btn btn-secondary' %>
+    </div>
   </div>
 </div>
