@@ -7,6 +7,9 @@
 $fa-font-path: '~font-awesome/fonts';
 @import '~font-awesome/scss/font-awesome';
 
-// Custom imports
+// Applicaiton component imports
 @import '../stylesheets/footer';
 @import '../stylesheets/navbar';
+
+// Model component imports
+@import '../stylesheets/contacts';
