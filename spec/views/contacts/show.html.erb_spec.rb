@@ -4,6 +4,14 @@ RSpec.describe 'contacts/show', type: :view do
   before(:each) do
     @contact = assign(:contact, create(:contact,
       name: 'Name', email: 'Email', notes: 'My Notes'))
+    create(:address,
+      addressable: @contact,
+      body: {
+        street1: 'The Street Address',
+        city: 'The City',
+        state: 'XX',
+        zip: '99999'
+      })
   end
 
   it 'renders attributes in a card' do
@@ -14,5 +22,9 @@ RSpec.describe 'contacts/show', type: :view do
       text: 'Email'
     expect(rendered).to have_selector '.card>.card-body',
       text: 'My Notes'
+    expect(rendered).to have_selector '.card>.card-body',
+      text: 'The Street Address'
+    expect(rendered).to have_selector '.card>.card-body',
+      text: 'The City, XX 99999'
   end
 end

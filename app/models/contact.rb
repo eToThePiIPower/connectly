@@ -3,7 +3,10 @@
 # made to
 class Contact < ApplicationRecord
   default_scope -> { order('created_at ASC') }
+
+  belongs_to :user
+  has_many :addresses, as: :addressable
+
   validates :name,
     presence: true
-  belongs_to :user
 end

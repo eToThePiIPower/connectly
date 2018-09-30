@@ -6,8 +6,19 @@
       </h1>
 
       <div class="card-body">
-        <%= @contact.email %>
-        <%= @contact.notes %>
+        <p><%= @contact.email %></p>
+        <p><%= @contact.notes %></p>
+      </div>
+      <div class="card-body">
+        <% @contact.addresses.each do |address| %>
+          <p>
+            <%= address.body['street1'] %><br />
+            <% if address.body['street2'] %>
+              <%= address.body['street2'] %><br />
+            <% end %>
+            <%= address.body['city'] %>, <%= address.body['state'] %> <%= address.body['zip'] %><br />
+          </p>
+        <% end %>
       </div>
 
       <div class="card-footer card-footer-actions">
