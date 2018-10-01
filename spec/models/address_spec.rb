@@ -9,9 +9,9 @@ RSpec.describe Address, type: :model do
     .with_options(null: false, default: '{}') }
   it { should have_db_index([:addressable_type, :addressable_id]) }
 
-  it { should define_enum_for(:address_type).with([:work, :home]) }
+  it { should define_enum_for(:address_type).with([:work, :home, :other]) }
 
   it { should belong_to(:addressable) }
 
-  it { should validate_presence_of(:addressable_id) }
+  it { should validate_presence_of(:addressable) }
 end

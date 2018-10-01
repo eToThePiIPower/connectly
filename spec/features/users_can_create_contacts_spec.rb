@@ -10,6 +10,10 @@ RSpec.feature 'Users can create contacts', type: :feature do
     click_link 'Add your first contact'
     fill_in 'Name', with: 'John Doe'
     fill_in 'Email', with: 'john.doe@example.com'
+    fill_in 'Street1', with: '123 Fake St'
+    fill_in 'City', with: 'Springfield'
+    fill_in 'State', with: 'NA'
+    fill_in 'Zip', with: '99999'
     click_button 'Submit'
 
     expect(page).to have_css '.alert-info',

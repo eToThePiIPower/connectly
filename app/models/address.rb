@@ -16,10 +16,17 @@
 #   updated_at            datetime    not null
 #
 class Address < ApplicationRecord
-  enum address_type: { work: 0, home: 1 }
+  ADDRESS_TYPES = [:work, :home, :other].freeze
+
+  enum address_type: ADDRESS_TYPES
 
   belongs_to :addressable, polymorphic: true
 
-  validates :addressable_id,
+  validates :addressable,
     presence: true
+
+  # :reek:UncommunicativeMethodName
+  def self.ADDRESS_TYPES # rubocop:disable Naming/MethodName
+    ADDRESS_TYPES
+  end
 end

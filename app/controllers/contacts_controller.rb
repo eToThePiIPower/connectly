@@ -16,6 +16,9 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   def new
     @contact = current_user.contacts.new
+    1.times do
+      @contact.addresses.build
+    end
   end
 
   # GET /contacts/1/edit
@@ -73,7 +76,10 @@ class ContactsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def contact_params
-    params.require(:contact).permit(:name, :email, :notes)
+    params.require(:contact)
+          .permit(:name, :email, :notes,
+            addresses_attributes: [:id, :address_type, :primary,
+                                   body: [:street1, :city, :state, :zip]])
   end
 
   def success_notice
