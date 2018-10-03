@@ -26,4 +26,9 @@
       <%= b.text_field :zip, value: f.object.body['zip'], class: 'form-control' %>
     </div>
   <% end %>
+
+  <div class="form-check col-4 col-md-2 offset-8 offset-md-10">
+    <%= f.check_box :_destroy, class: 'form-check-input' %>
+    <%= f.label :_destroy, class: 'form-check-label' %>
+  </div>
 </div>
