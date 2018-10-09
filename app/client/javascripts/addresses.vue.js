@@ -1,21 +1,47 @@
 /* eslint no-console: 0 */
-// Run this example by adding <%= javascript_pack_tag 'hello_vue' %> (and
-// <%= stylesheet_pack_tag 'hello_vue' %> if you have styles in your component)
-// to the head of your layout file,
-// like app/views/layouts/application.html.erb.
-// All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue';
-import App from '../app.vue';
+import Vue from 'vue/dist/vue.esm';
+import TurbolinksAdapter from 'vue-turbolinks';
+import VueResource from 'vue-resource';
 
+Vue.use(TurbolinksAdapter);
+Vue.use(VueResource);
+
+// document.addEventListener('turbolinks:load', () => {
 document.addEventListener('DOMContentLoaded', () => {
-  const el = document.body.appendChild(document.createElement('hello'));
-  const app = new Vue({
-    el,
-    render: h => h(App),
-  });
+  /* eslint-disable no-param-reassign, no-underscore-dangle, camelcase */
+  Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  const el = document.getElementById('contact_form');
 
-  console.log(app);
+  if (el != null) {
+    const contact = JSON.parse(el.dataset.contact);
+    const addresses_attributes = JSON.parse(el.dataset.addressesAttributes);
+    addresses_attributes.forEach((address) => {
+      address._destroy = null;
+    });
+    contact.addresses_attributes = addresses_attributes;
+
+    const app = new Vue({
+      el,
+      data() {
+        return { contact };
+      },
+      methods: {
+        addAddress() {
+          contact.addresses_attributes.push({
+            id: null,
+            address_type: 'work',
+            body: {
+              street1: '',
+            },
+            _destroy: null,
+          });
+        },
+      },
+    });
+
+    console.log(app);
+  }
 });
 
 

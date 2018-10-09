@@ -18,11 +18,16 @@
 class Address < ApplicationRecord
   ADDRESS_TYPES = [:work, :home, :other].freeze
 
+  default_scope -> { order('created_at ASC') }
+
   enum address_type: ADDRESS_TYPES
 
   belongs_to :addressable, polymorphic: true
 
   validates :addressable,
+    presence: true
+
+  validates :address_type,
     presence: true
 
   # :reek:UncommunicativeMethodName

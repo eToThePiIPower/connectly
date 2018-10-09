@@ -1,4 +1,5 @@
 /* eslint no-console:0 */
+/* eslint import/no-unresolved:0 */
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
@@ -8,6 +9,7 @@
 // layout file, like app/views/layouts/application.html.erb
 import Rails from 'rails-ujs';
 import 'bootstrap/dist/js/bootstrap';
+import 'javascripts/addresses.vue';
 
 Rails.start();
 

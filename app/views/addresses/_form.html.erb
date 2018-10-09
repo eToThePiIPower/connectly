@@ -1,34 +1,64 @@
-<div class="row">
-  <div class="form-group col-md-2">
-    <%= f.label :address_type %>
-    <%= f.select(:address_type, Address.ADDRESS_TYPES, {},
-                 class: 'form-control') %>
-  </div>
+<div class="form-row">
 
-  <%= f.fields_for :body do |b| %>
-    <div class="form-group col-md-10">
-      <%= b.label :street1 %>
-      <%= b.text_field :street1, value: f.object.body['street1'], class: 'form-control' %>
+  <input type="hidden"
+    v-model="address.id"
+    v-bind:id="'contact_addresses_attributes_' + index + '_id'"
+    v-bind:name="'contact[addresses_attributes][' + index + '][id]'" />
+
+  <div class="form-group col-8 col-md-2 push-md-1 order-1">
+    <label class="sr-only" for="'contact_addresses_attributes_' + index + '_address_type'">Address Type</label>
+    <select class="form-control" type="text"
+      v-model="address.address_type"
+      v-bind:id="'contact_addresses_attributes_' + index + '_address_type'"
+      v-bind:name="'contact[addresses_attributes][' + index + '][address_type]'">
+      <option>work</option>
+      <option>home</option>
+      <option>other</option>
+    </select>
+  </div><!-- /.form-group -->
+
+  <div class="form-group col-4 col-md-2 order-2 order-md-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="1"
+        v-bind:id="'contact_addresses_attributes_' + index + '_destroy'"
+        v-bind:name="'contact[addresses_attributes][' + index + '][_destroy]'" />
+      <label class="form-check-label"
+        v-bind:for="'contact_addresses_attributes_' + index + '_destroy'">
+        Delete?
+      </label>
     </div>
+  </div><!-- /.form-group -->
 
-    <div class="form-group col-md-7 offset-md-2">
-      <%= b.label :city %>
-      <%= b.text_field :city, value: f.object.body['city'], class: 'form-control' %>
-    </div>
+  <div class="form-group col-md-10 order-3 order-md-2">
+    <label class="sr-only" for="'contact_addresses_attributes_' + index + '_body_street1'">Street Address</label>
+    <input class="form-control" type="text" placeholder="Street Address"
+      v-model="address.body.street1"
+      v-bind:id="'contact_addresses_attributes_' + index + '_body_street1'"
+      v-bind:name="'contact[addresses_attributes][' + index + '][body][street1]'" />
+  </div><!-- /.form-group -->
 
-    <div class="form-group col-md-1">
-      <%= b.label :state %>
-      <%= b.text_field :state, value: f.object.body['state'], class: 'form-control' %>
-    </div>
+  <div class="form-group  col-7 col-md-6 order-4">
+    <label class="sr-only" for="'contact_addresses_attributes_' + index + '_body_city'">City</label>
+    <input class="form-control" type="text" placeholder="City"
+      v-model="address.body.city"
+      v-bind:id="'contact_addresses_attributes_' + index + '_body_city'"
+      v-bind:name="'contact[addresses_attributes][' + index + '][body][city]'" />
+  </div><!-- /.form-group -->
 
-    <div class="form-group col-md-2">
-      <%= b.label :zip %>
-      <%= b.text_field :zip, value: f.object.body['zip'], class: 'form-control' %>
-    </div>
-  <% end %>
+  <div class="form-group col-2 col-md-1 order-4">
+    <label class="sr-only" for="'contact_addresses_attributes_' + index + '_body_state'">State</label>
+    <input class="form-control" type="text" placeholder="State"
+      v-model="address.body.state"
+      v-bind:id="'contact_addresses_attributes_' + index + '_body_state'"
+      v-bind:name="'contact[addresses_attributes][' + index + '][body][state]'" />
+  </div><!-- /.form-group -->
 
-  <div class="form-check col-4 col-md-2 offset-8 offset-md-10">
-    <%= f.check_box :_destroy, class: 'form-check-input' %>
-    <%= f.label :_destroy, class: 'form-check-label' %>
-  </div>
-</div>
+  <div class="form-group col-3 col-md-3 order-4">
+    <label class="sr-only" for="'contact_addresses_attributes_' + index + '_body_zip'">Zip</label>
+    <input class="form-control" type="text" placeholder="Zip"
+      v-model="address.body.zip"
+      v-bind:id="'contact_addresses_attributes_' + index + '_body_zip'"
+      v-bind:name="'contact[addresses_attributes][' + index + '][body][zip]'" />
+  </div><!-- /.form-group -->
+
+</div><!-- /.form-row -->

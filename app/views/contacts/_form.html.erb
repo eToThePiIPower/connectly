@@ -1,4 +1,9 @@
-<%= form_with(model: contact, local: true) do |f| %>
+<%= form_with model: contact, local: true,
+  id: 'contact_form',
+  data: {
+    contact: contact.to_json,
+    addresses_attributes: contact.addresses.to_json(except: [:contact_id, :created_at, :updated_at])
+  } do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
@@ -10,11 +15,18 @@
   </div>
 
   <fieldset class="form-group">
-    <legend>Address</legend>
-    <%= f.fields_for :addresses do |address| %>
-      <%= render 'addresses/form', f: address %>
-      <hr />
-    <% end %>
+    <legend>Addresses</legend>
+
+    <section class="form-group"
+      v-bind:id="'contact_addresses_attributes_' + index"
+      v-for="(address, index) in contact.addresses_attributes">
+      <%= render 'addresses/form' %>
+    </section>
+
+    <div class="form-group actions">
+      <a class="btn btn-secondary form-control" href="#" role="button" v-on:click="addAddress">Add Address</a>
+    </div>
+
   </fieldset>
 
   <div class="form-group">
