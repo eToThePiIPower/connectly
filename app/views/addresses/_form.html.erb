@@ -1,12 +1,9 @@
 <div class="form-row">
 
-  <input type="hidden"
-    v-model="address.id"
-    v-bind:id="'contact_addresses_attributes_' + index + '_id'"
-    v-bind:name="'contact[addresses_attributes][' + index + '][id]'" />
+  <%= vue_hidden_tag :id, 'address', 'contact' %>
 
   <div class="form-group col-8 col-md-2 push-md-1 order-1">
-    <label class="sr-only" for="'contact_addresses_attributes_' + index + '_address_type'">Address Type</label>
+    <%= vue_label :address_type, 'address', 'contact' %>
     <select class="form-control" type="text"
       v-model="address.address_type"
       v-bind:id="'contact_addresses_attributes_' + index + '_address_type'"
@@ -31,11 +28,8 @@
   </div><!-- /.form-group -->
 
   <div class="form-group col-md-10 order-3 order-md-2">
-    <label class="sr-only" for="'contact_addresses_attributes_' + index + '_body_street1'">Street Address</label>
-    <input class="form-control" type="text" placeholder="Street Address"
-      v-model="address.body.street1"
-      v-bind:id="'contact_addresses_attributes_' + index + '_body_street1'"
-      v-bind:name="'contact[addresses_attributes][' + index + '][body][street1]'" />
+    <%= vue_label :body_street1, 'address', 'contact' do %>Street Address<% end %>
+    <%= vue_text_field :body_street1, 'address', 'contact', placeholder: 'Street Address' %>
   </div><!-- /.form-group -->
 
   <div class="form-group  col-7 col-md-6 order-4">
