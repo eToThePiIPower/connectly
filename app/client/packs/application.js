@@ -14,5 +14,4 @@ import 'javascripts/addresses.vue';
 Rails.start();
 
 $(() => {
-  console.log('Hello World from Webpacker');
 });

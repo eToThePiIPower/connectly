@@ -23,6 +23,7 @@ group :development, :test do
   gem 'capybara', '~> 2.18'
   gem 'erb_lint'
   gem 'factory_bot_rails', '~> 4.8'
+  gem 'poltergeist'
   gem 'rails-controller-testing'
   gem 'reek', '~> 5.0'
   gem 'rspec-rails', '~> 3.7'

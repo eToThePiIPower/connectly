@@ -1,4 +1,6 @@
 /* eslint no-console: 0 */
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "app" }] */
+/* eslint-disable no-param-reassign, no-underscore-dangle, camelcase */
 
 import Vue from 'vue/dist/vue.esm';
 import TurbolinksAdapter from 'vue-turbolinks';
@@ -9,8 +11,11 @@ Vue.use(VueResource);
 
 // document.addEventListener('turbolinks:load', () => {
 document.addEventListener('DOMContentLoaded', () => {
-  /* eslint-disable no-param-reassign, no-underscore-dangle, camelcase */
-  Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  const csrf_token = document.querySelector('meta[name="csrf-token"]');
+  if (csrf_token != null) {
+    Vue.http.headers.common['X-CSRF-Token'] = csrf_token.getAttribute('content');
+  }
+
   const el = document.getElementById('contact_form');
 
   if (el != null) {
@@ -39,8 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       },
     });
-
-    console.log(app);
   }
 });
 
