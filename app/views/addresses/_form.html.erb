@@ -11,9 +11,10 @@
       v-model="address.address_type"
       v-bind:id="'contact_addresses_attributes_' + index + '_address_type'"
       v-bind:name="'contact[addresses_attributes][' + index + '][address_type]'">
-      <option>work</option>
-      <option>home</option>
-      <option>other</option>
+      <option value="">choose a type ...</option>
+      <% Address.ADDRESS_TYPES.each do |type| %>
+        <option><%= type %></option>
+      <% end %>
     </select>
   </div><!-- /.form-group -->
 

@@ -42,6 +42,7 @@ RSpec.feature 'Users can create contacts', type: :feature do
     end
     within('#contact_addresses_attributes_2') do
       fill_in 'Street Address', with: '12345 Fakest St'
+      select 'work'
     end
     click_button 'Submit'
 

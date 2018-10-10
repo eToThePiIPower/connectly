@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         addAddress() {
           contact.addresses_attributes.push({
             id: null,
-            address_type: 'work',
+            address_type: '',
             body: {
               street1: '',
             },
